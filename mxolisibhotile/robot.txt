@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /cgi-bin/
+Crawl-delay: 5
+
+Sitemap: https://mxolisibhotile.vercel.app/sitemap.xml

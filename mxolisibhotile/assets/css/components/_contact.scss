@@ -1,11 +1,9 @@
-_contact-variables.scss
-Contact-specific variable overrides and extensions
 :root {
     // Contact section specific variables
     --contact-bg-gradient: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 100%);
     --contact-card-shadow: var(--shadow-xl);
     --contact-form-bg: var(--color-bg);
-    --contact-form-border: var(--color-border);
+    --contact-form-border: hsla(0, 0%, 0%, 0.20);;
     --contact-form-focus-shadow: 0 0 0 2px hsla(var(--hue-primary), 83%, 53%, 0.2);
     --contact-info-gradient: var(--gradient-primary);
     --contact-white: var(--color-surface);

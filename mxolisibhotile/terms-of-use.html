@@ -1,13 +1,12 @@
-[file name]: terms-of-service.html
-[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Reuse same head content from index.html -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service | Mxolisi Bhotile - Web Developer</title>
   <meta name="description" content="Terms of Service for Mxolisi Bhotile's web development services. Understand the legal agreement between you and the service provider.">
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/mb2_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/mb2_io/favicon-32x32.png">
@@ -19,10 +18,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script defer src="/assets/js/theme.js"></script>
 </head>
+
 <body>
 
-    <header>
+  <header>
 
         <nav class="navbar-container">
           
@@ -48,25 +50,26 @@
             <span class="brand-name">Mxolisi</span>
                     
             <!-- Theme Toggle in Navbar -->
-            <button id="navbar-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-    
-              <svg id="navbar-moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-    
-              <svg id="navbar-sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-    
-            </button>
+        <!-- Theme Toggle in Navbar -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+
+          <svg id="moon-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+
+          <svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+
+        </button>
                     
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">☰</button>
     
@@ -123,13 +126,13 @@
             
         <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     
-      </header>
+  </header>
 
   <!-- Terms of Service Content -->
   <section class="terms-of-service">
     <div class="container">
       <h1 class="section-title">Terms of Service</h1>
-      <p class="section-subtitle">Effective Date: [Insert Date]</p>
+      <p class="section-subtitle">Effective Date: 5/24/2025</p>
 
       <div class="terms-content">
         <h2>1. Acceptance of Terms</h2>
@@ -260,12 +263,12 @@
           <div class="footer-column">
             <h3 class="footer-heading">Services</h3>
             <ul class="footer-links">
-              <li><a href="#services">Web Design</a></li>
-              <li><a href="#services">Frontend Development</a></li>
-              <li><a href="#services">Responsive Websites</a></li>
-              <li><a href="#services">UI/UX Design</a></li>
-              <li><a href="#services">SEO Optimization</a></li>
-              <li><a href="#services">Performance Tuning</a></li>
+              <li><a href="/index.html">Web Design</a></li>
+              <li><a href="/index.html">Frontend Development</a></li>
+              <li><a href="/index.html">Responsive Websites</a></li>
+              <li><a href="/index.html">UI/UX Design</a></li>
+              <li><a href="/index.html">SEO Optimization</a></li>
+              <li><a href="/index.html">Performance Tuning</a></li>
             </ul>
           </div>
 
@@ -273,12 +276,12 @@
           <div class="footer-column">
             <h3 class="footer-heading">Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#process">Process</a></li>
-              <li><a href="#works">Portfolio</a></li>
-              <li><a href="#blog">Blog</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/index.html">About</a></li>
+              <li><a href="/index.html">Process</a></li>
+              <li><a href="/index.html">Portfolio</a></li>
+              <li><a href="/index.html">Blog</a></li>
+              <li><a href="/index.html">Contact</a></li>
             </ul>
           </div>
 
@@ -328,8 +331,8 @@
       <div class="container">
         <p class="copyright">© <span id="current-year">2025</span> Mxolisi. All rights reserved.</p>
         <div class="footer-links-bottom">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Service</a>
         </div>
       </div>
     </div>
@@ -358,13 +361,7 @@
 
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="/assets/js/script.js" defer></script>
-  <script src="/assets/js/works.js" defer></script>
-  <script src="/assets/js/benefits.js" defer></script>
-  <script src="/assets/js/about.js" defer></script>
-  <script src="/assets/js/process.js" defer></script>
-  <!-- <script src="/assets/js/contact.js" defer></script> -->
   <script src="/assets/js/footer.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,1777 @@
+.about-section {
+    padding: 6rem 0;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: var(--gradient-radial-secondary), var(--gradient-radial-primary);
+        z-index: 0;
+    }
+
+    @include mobile {
+        padding: 4rem 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+
+    @include mobile {
+        padding: 0 1rem;
+    }
+}
+
+.about-flex {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: space-between;
+    padding-top: 20px;
+
+    @media (max-width: 992px) {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    @include mobile {
+        gap: 1.5rem;
+    }
+}
+
+.about-visuals,
+.about-content {
+    flex: 1;
+}
+
+.about-visuals {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (max-width: 992px) {
+        order: 1;
+    }
+
+    @include mobile {
+        gap: 1.5rem;
+    }
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include mobile {
+        gap: 1.5rem;
+    }
+}
+
+.cta-btns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.btn {
+    @include button-base;
+    padding: 12px 28px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    transition: var(--transition-default);
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-primary);
+
+    @include mobile {
+        padding: 10px 24px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+
+    &:hover {
+        background: var(--color-hover-bg);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
+}
+
+.bio-text {
+    margin-bottom: 1rem;
+    position: relative;
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: var(--color-text-primary);
+        margin-bottom: 1.5rem;
+        font-family: var(--font-primary);
+
+        @include mobile {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.signature {
+    width: 150px;
+    opacity: 0.9;
+    margin-top: 1.5rem;
+
+    img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+    }
+
+    @include mobile {
+        width: 120px;
+        margin-top: 1rem;
+    }
+}
+
+[data-theme="dark"] .signature img {
+    filter: brightness(0) invert(1);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-surface);
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--transition-default);
+    box-shadow: var(--shadow-sm);
+
+    &.visible {
+        opacity: 1;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--color-text-primary);
+    }
+
+    @include mobile {
+        width: 36px;
+        height: 36px;
+        bottom: 20px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+// TYPING TEXT COMPONENT
+.typing-text {
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 600;
+    border-right: 3px solid var(--color-accent);
+    animation: blink 0.7s infinite, typing 4s steps(30) infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 0;
+    min-height: 1.2em;
+
+    @media (max-width: 992px) {
+        font-size: 2.2rem;
+    }
+
+    @include mobile {
+        font-size: 1.8rem;
+        // Keep animation on mobile but make it more responsive
+        animation: blink 0.7s infinite, typing-mobile 5s steps(20) infinite;
+        white-space: normal;
+        word-break: break-word;
+        hyphens: auto;
+        line-height: 1.3;
+        min-height: auto;
+        
+        // Allow text to wrap on very small screens
+        @include small-mobile {
+            font-size: 1.5rem;
+            animation: blink 0.7s infinite, typing-small 6s steps(15) infinite;
+        }
+    }
+}
+
+// Desktop/Tablet typing animation
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    40% {
+        width: 100%;
+    }
+    60% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+// Mobile typing animation - slightly slower
+// @keyframes typing-mobile {
+//     0% {
+//         width: 0;
+//     }
+//     50% {
+//         width: 100%;
+//     }
+//     70% {
+//         width: 100%;
+//     }
+//     100% {
+//         width: 100%;
+//     }
+// }
+
+// Small mobile typing animation - even slower
+// @keyframes typing-small {
+//     0% {
+//         width: 0;
+//     }
+//     60% {
+//         width: 100%;
+//     }
+//     80% {
+//         width: 100%;
+//     }
+//     100% {
+//         width: 100%;
+//     }
+// }
+
+@keyframes blink {
+    0%, 50% {
+        border-color: var(--color-accent);
+        opacity: 1;
+    }
+    51%, 100% {
+        border-color: transparent;
+        opacity: 0.7;
+    }
+}
+
+// Alternative typing text without animation for accessibility
+.typing-text-static {
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 600;
+    display: block;
+    line-height: 1.3;
+
+    @media (max-width: 992px) {
+        font-size: 2.2rem;
+    }
+
+    @include mobile {
+        font-size: 1.8rem;
+        
+        @include small-mobile {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+// For users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .typing-text {
+        animation: none;
+        border-right: none;
+        width: auto;
+        white-space: normal;
+        word-break: break-word;
+    }
+}
+
+// ===================================
+// CONTENT CARDS COMPONENT
+// ===================================
+
+.content-card {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-default);
+    border: 1px solid var(--color-border-light);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--color-border);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+        transition: var(--transition-default);
+    }
+
+    &:hover::before {
+        height: 6px;
+        box-shadow: var(--shadow-glow);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-primary);
+        font-family: var(--font-secondary);
+        font-weight: 600;
+
+        @include mobile {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @include mobile {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+// Themed content cards
+.content-card {
+    &.theme-1 {
+        background: var(--card-bg-1);
+        
+        &::before {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+        }
+    }
+
+    &.theme-2 {
+        background: var(--card-bg-2);
+        
+        &::before {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+        }
+    }
+
+    &.theme-3 {
+        background: var(--card-bg-3);
+        
+        &::before {
+            background: linear-gradient(135deg, var(--color-success), var(--color-secondary));
+        }
+    }
+
+    &.theme-4 {
+        background: var(--card-bg-4);
+        
+        &::before {
+            background: var(--gradient-primary);
+        }
+    }
+
+    &.theme-5 {
+        background: var(--card-bg-5);
+        
+        &::before {
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+        }
+    }
+}
+
+// Glow effect for active elements
+.content-card:hover::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: var(--border-radius-md);
+    pointer-events: none;
+    box-shadow: 0 0 20px var(--color-primary-light);
+    opacity: 0;
+    animation: glow 1.5s ease-in-out;
+    z-index: -1;
+}
+
+// Content card variations
+.content-card {
+    &.highlight {
+        background: var(--highlight-bg);
+        border-color: var(--color-primary);
+        
+        &::before {
+            background: var(--color-primary);
+            box-shadow: var(--shadow-glow);
+        }
+    }
+
+    &.minimal {
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border);
+        
+        &:hover {
+            box-shadow: var(--shadow-md);
+        }
+    }
+
+    &.elevated {
+        box-shadow: var(--shadow-xl);
+        transform: translateY(-2px);
+        
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px hsla(var(--hue-primary), 83%, 53%, 0.15);
+        }
+    }
+}
+
+// ===================================
+// TECH STACK COMPONENT
+// ===================================
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+
+    @include mobile {
+        gap: 1.2rem;
+        margin-top: 1.5rem;
+    }
+}
+
+.tech-item {
+    width: 60px;
+    height: 60px;
+    background: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-default);
+    position: relative;
+    border: 1px solid var(--color-border-light);
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-8px) rotate(5deg);
+        box-shadow: var(--shadow-xl);
+        background: var(--color-hover-bg);
+        border-color: var(--color-primary);
+    }
+
+    &::after {
+        content: attr(data-tech);
+        position: absolute;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--color-accent);
+        color: var(--color-surface);
+        padding: 0.4rem 0.8rem;
+        border-radius: var(--border-radius-sm);
+        font-size: 0.8rem;
+        font-weight: 500;
+        opacity: 0;
+        transition: var(--transition-default);
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 10;
+        box-shadow: var(--shadow-sm);
+        font-family: var(--font-secondary);
+    }
+
+    &:hover::after {
+        opacity: 1;
+        bottom: -30px;
+    }
+
+    img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+        transition: var(--transition-default);
+    }
+
+    @include mobile {
+        width: 50px;
+        height: 50px;
+
+        img {
+            width: 65%;
+            height: 65%;
+        }
+
+        &::after {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.6rem;
+            bottom: -30px;
+        }
+
+        &:hover::after {
+            bottom: -25px;
+        }
+    }
+
+    @include small-mobile {
+        width: 45px;
+        height: 45px;
+
+        &::after {
+            font-size: 0.65rem;
+            padding: 0.25rem 0.5rem;
+        }
+    }
+}
+
+// Theme-specific tech item styling
+[data-theme="light"] .tech-item {
+    img {
+        filter: none;
+    }
+
+    &:hover img {
+        filter: brightness(1.1) saturate(1.2);
+    }
+}
+
+[data-theme="dark"] .tech-item {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+
+    img {
+        filter: brightness(0.9) invert(0.1);
+    }
+
+    &:hover img {
+        filter: brightness(1) invert(0);
+    }
+
+    &:hover {
+        background: var(--color-hover-bg);
+        border-color: var(--color-primary);
+    }
+}
+
+// Tech item variants
+.tech-item {
+    &.featured {
+        width: 70px;
+        height: 70px;
+        background: var(--gradient-primary);
+        color: var(--color-surface);
+        
+        &:hover {
+            transform: translateY(-10px) rotate(8deg) scale(1.1);
+        }
+
+        img {
+            filter: brightness(0) invert(1);
+        }
+
+        @include mobile {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &.pulse {
+        animation: pulse-light 2s infinite;
+        
+        &:hover {
+            animation: none;
+        }
+    }
+
+    &.glow {
+        box-shadow: var(--shadow-glow);
+        
+        &:hover {
+            box-shadow: 0 0 25px var(--color-primary);
+        }
+    }
+}
+
+// Tech stack grid layout alternative
+.tech-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    justify-items: center;
+
+    @include mobile {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 1rem;
+        max-width: 300px;
+    }
+}
+
+// Tech categories
+.tech-category {
+    margin-bottom: 2rem;
+
+    h4 {
+        font-size: 1.1rem;
+        color: var(--color-text-secondary);
+        font-family: var(--font-secondary);
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .tech-stack {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    @include mobile {
+        margin-bottom: 1.5rem;
+
+        h4 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+    }
+}
+
+// ===================================
+// CODE SNIPPET COMPONENT
+// ===================================
+
+.code-snippet {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 1px solid var(--color-border);
+    transition: var(--transition-default);
+
+    &:hover {
+        box-shadow: var(--shadow-xl);
+        border-color: var(--color-primary);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(135deg, var(--color-border-light), var(--color-border));
+        border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    }
+
+    @include mobile {
+        padding: 1rem;
+        
+        &::before {
+            height: 35px;
+        }
+    }
+}
+
+.code-container {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.code-dots {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    z-index: 2;
+
+    @include mobile {
+        gap: 6px;
+        top: -8px;
+    }
+}
+
+.code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+
+    &.red {
+        background: #ff5f56;
+        
+        &:hover {
+            background: #ff3b30;
+            box-shadow: 0 0 8px #ff5f56;
+        }
+    }
+
+    &.yellow {
+        background: #ffbd2e;
+        
+        &:hover {
+            background: #ff9500;
+            box-shadow: 0 0 8px #ffbd2e;
+        }
+    }
+
+    &.green {
+        background: #27c93f;
+        
+        &:hover {
+            background: #30d158;
+            box-shadow: 0 0 8px #27c93f;
+        }
+    }
+
+    @include mobile {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.code-snippet code {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    display: block;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-weight: 400;
+
+    @include mobile {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    @include small-mobile {
+        font-size: 0.75rem;
+        overflow-x: auto;
+    }
+}
+
+// Syntax highlighting
+.code-snippet {
+    .highlight {
+        color: #cc7832;
+        font-weight: 500;
+    }
+
+    .string {
+        color: #6a8759;
+    }
+
+    .property {
+        color: #9876aa;
+    }
+
+    .bracket {
+        color: #e8e2b7;
+    }
+
+    .comment {
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    .keyword {
+        color: var(--color-primary);
+        font-weight: 500;
+    }
+
+    .number {
+        color: var(--color-accent);
+    }
+
+    .function {
+        color: var(--color-secondary);
+    }
+}
+
+// Dark theme code syntax
+[data-theme="dark"] .code-snippet {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+
+    &::before {
+        background: linear-gradient(135deg, var(--color-border), var(--color-border-light));
+    }
+
+    code {
+        color: var(--color-text-primary);
+    }
+
+    .highlight {
+        color: #ffc66d;
+    }
+
+    .string {
+        color: #a5c261;
+    }
+
+    .property {
+        color: #c792ea;
+    }
+
+    .bracket {
+        color: #89ddff;
+    }
+
+    .comment {
+        color: var(--color-text-muted);
+    }
+
+    .keyword {
+        color: var(--color-primary-light);
+    }
+
+    .number {
+        color: #f78c6c;
+    }
+
+    .function {
+        color: #82aaff;
+    }
+}
+
+// Code snippet variants
+.code-snippet {
+    &.terminal {
+        background: #1e1e1e;
+        color: #ffffff;
+        
+        &::before {
+            background: #2d2d2d;
+        }
+        
+        code {
+            color: #ffffff;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+        
+        .code-dots {
+            .red { background: #ff5f57; }
+            .yellow { background: #ffbd2e; }
+            .green { background: #28ca42; }
+        }
+    }
+
+    &.minimal {
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-border-light);
+        
+        &::before {
+            display: none;
+        }
+        
+        .code-container {
+            padding-top: 0;
+        }
+        
+        .code-dots {
+            display: none;
+        }
+    }
+
+    &.elevated {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+        
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+}
+
+// Copy button for code snippets
+.code-snippet {
+    .copy-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-sm);
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        transition: var(--transition-fast);
+        z-index: 3;
+
+        &:hover {
+            background: var(--color-hover-bg);
+            color: var(--color-text-primary);
+            border-color: var(--color-primary);
+        }
+
+        &.copied {
+            background: var(--color-success);
+            color: var(--color-surface);
+            border-color: var(--color-success);
+        }
+    }
+}
+
+// ===================================
+// PHILOSOPHY COMPONENT
+// ===================================
+
+.dev-philosophy {
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-primary);
+        font-family: var(--font-secondary);
+        font-weight: 600;
+        text-align: center;
+
+        @include mobile {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.philosophy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.philosophy-list li {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-default);
+    color: var(--color-text-primary);
+    background: transparent;
+    border: 1px solid transparent;
+    position: relative;
+
+    &:hover {
+        background: var(--color-hover-bg);
+        border-color: var(--color-border);
+        transform: translateX(8px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include mobile {
+        font-size: 1rem;
+        padding: 0.8rem;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+
+        &:hover {
+            transform: translateX(4px);
+        }
+    }
+
+    @include small-mobile {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.6rem;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+.emoji {
+    font-size: 1.8rem;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
+    border: 1px solid var(--color-border-light);
+    flex-shrink: 0;
+
+    @include mobile {
+        font-size: 1.6rem;
+        min-width: 36px;
+        height: 36px;
+        margin-right: 0.3rem;
+    }
+
+    @include small-mobile {
+        font-size: 1.4rem;
+        min-width: 32px;
+        height: 32px;
+        margin-right: 0;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.philosophy-list li:hover .emoji {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-md);
+    background: var(--gradient-primary);
+    border-color: var(--color-primary);
+}
+
+// Philosophy item variants
+.philosophy-list li {
+    &.highlight {
+        background: var(--highlight-bg);
+        border-color: var(--color-primary);
+        
+        .emoji {
+            background: var(--color-primary);
+            color: var(--color-surface);
+            box-shadow: var(--shadow-glow);
+        }
+    }
+
+    &.featured {
+        background: var(--gradient-primary);
+        color: var(--color-surface);
+        border-color: var(--color-primary);
+        
+        .emoji {
+            background: var(--color-surface);
+            color: var(--color-primary);
+        }
+        
+        &:hover {
+            transform: translateX(12px) scale(1.02);
+            box-shadow: var(--shadow-primary);
+        }
+    }
+
+    &.minimal {
+        padding: 0.8rem 0;
+        border: none;
+        border-bottom: 1px solid var(--color-border-light);
+        border-radius: 0;
+        
+        &:hover {
+            background: transparent;
+            border-bottom-color: var(--color-primary);
+            transform: translateX(4px);
+        }
+        
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+// Animated philosophy items
+.philosophy-list {
+    &.animated li {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+        
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.1}s;
+            }
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Philosophy grid layout alternative
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    
+    .philosophy-list {
+        margin: 0;
+        
+        li {
+            margin-bottom: 0;
+            height: 100%;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-md);
+            }
+        }
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+// ===================================
+// EXPERIENCE BARS COMPONENT
+// ===================================
+
+.experience-bars {
+    margin-top: 2rem;
+
+    @include mobile {
+        margin-top: 1.5rem;
+    }
+}
+
+.experience-item {
+    margin-bottom: 1.5rem;
+    transition: var(--transition-default);
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include mobile {
+        margin-bottom: 1.2rem;
+    }
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+
+    @include mobile {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+}
+
+.experience-name {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    flex: 1;
+
+    @include mobile {
+        font-size: 0.9rem;
+    }
+}
+
+.experience-level {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+
+    @include mobile {
+        font-size: 0.8rem;
+    }
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--color-border-light);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-default);
+
+    &:hover {
+        height: 10px;
+        background: var(--color-border);
+    }
+
+    @include mobile {
+        height: 6px;
+        
+        &:hover {
+            height: 8px;
+        }
+    }
+}
+
+.progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            hsla(0, 0%, 100%, 0.4) 50%, 
+            transparent 100%
+        );
+        transform: translateX(-100%);
+        animation: shine 2s infinite;
+    }
+
+    // Different progress levels with different colors
+    &[data-level="beginner"] {
+        background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+    }
+
+    &[data-level="intermediate"] {
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    }
+
+    &[data-level="advanced"] {
+        background: linear-gradient(135deg, var(--color-secondary), var(--color-success));
+    }
+
+    &[data-level="expert"] {
+        background: linear-gradient(135deg, var(--color-success), var(--color-primary-light));
+        box-shadow: var(--shadow-glow);
+    }
+}
+
+// Enhanced shine animation
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+// Experience item variants
+.experience-item {
+    &.featured {
+        background: var(--color-surface);
+        padding: 1rem;
+        border-radius: var(--border-radius-sm);
+        border: 1px solid var(--color-border-light);
+        box-shadow: var(--shadow-sm);
+        
+        &:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+        
+        .progress-bar {
+            background: var(--color-border);
+        }
+    }
+
+    &.minimal {
+        .progress-bar {
+            height: 4px;
+            background: var(--color-border-light);
+        }
+        
+        .experience-header {
+            margin-bottom: 0.3rem;
+        }
+        
+        .experience-name,
+        .experience-level {
+            font-size: 0.9rem;
+        }
+    }
+
+    &.animated {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+    }
+}
+
+// Staggered animation for multiple items
+.experience-bars.animated {
+    .experience-item {
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.15}s;
+            }
+        }
+    }
+}
+
+// Progress percentage display
+.progress-percentage {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-surface);
+    text-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.3);
+    opacity: 0;
+    transition: var(--transition-default);
+
+    .progress:hover & {
+        opacity: 1;
+    }
+}
+
+// Skill categories
+.skill-category {
+    margin-bottom: 2.5rem;
+
+    h4 {
+        font-size: 1.2rem;
+        color: var(--color-text-primary);
+        font-family: var(--font-secondary);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-primary);
+        display: inline-block;
+
+        @include mobile {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Responsive adjustments
+@include mobile {
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+    
+    .experience-level {
+        align-self: flex-end;
+    }
+}
+
+// ===================================
+// ANIMATIONS COMPONENT
+// ===================================
+
+// Bounce animation for scroll indicator
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+// Glow animation for hover effects
+@keyframes glow {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+// Fade in up animation for content
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Fade in animation
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Slide in from left
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Slide in from right
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Scale in animation
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Pulse animation for special elements
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 hsla(var(--hue-primary), 83%, 53%, 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 10px hsla(var(--hue-primary), 83%, 53%, 0);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 0 0 hsla(var(--hue-primary), 83%, 53%, 0);
+        transform: scale(1);
+    }
+}
+
+// Rotate animation
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Float animation for decorative elements
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// Wiggle animation
+@keyframes wiggle {
+    0%, 7% {
+        transform: rotateZ(0);
+    }
+    15% {
+        transform: rotateZ(-15deg);
+    }
+    20% {
+        transform: rotateZ(10deg);
+    }
+    25% {
+        transform: rotateZ(-10deg);
+    }
+    30% {
+        transform: rotateZ(6deg);
+    }
+    35% {
+        transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+        transform: rotateZ(0);
+    }
+}
+
+// Shake animation
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-2px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(2px);
+    }
+}
+
+// Gradient shift animation
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+// Heartbeat animation
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.1);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.1);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
+// Animation utility classes
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.4s ease-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+    animation: wiggle 1s ease-in-out;
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+// Staggered animations
+.stagger-children {
+    > * {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+        
+        @for $i from 1 through 20 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.1}s;
+            }
+        }
+    }
+}
+
+// Hover animations
+.hover-lift {
+    transition: var(--transition-default);
+    
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+.hover-scale {
+    transition: var(--transition-default);
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.hover-rotate {
+    transition: var(--transition-default);
+    
+    &:hover {
+        transform: rotate(5deg);
+    }
+}
+
+.hover-glow {
+    transition: var(--transition-default);
+    
+    &:hover {
+        box-shadow: var(--shadow-glow);
+    }
+}
+
+// Performance optimizations
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .animate-fadeIn,
+    .animate-fadeInUp,
+    .animate-slideInLeft,
+    .animate-slideInRight,
+    .animate-scaleIn {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .stagger-children > * {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}

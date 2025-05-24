@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Mxolisi Bhotile, a web designer and developer">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/mb2_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/mb2_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/mb2_io/favicon-16x16.png">
+  <title>Mxolisi's Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+
+    <nav class="navbar-container">
+      
+      <div class="navbar-left">
+        <img src="https://github.com/Levii17/images/blob/main/logos/logo2_vectorized.png?raw=true" class="mxolisi" alt="Mxolisi Logo" width="200" height="40" loading="lazy">
+      </div>
+            
+      <div class="navbar-center" id="navbar-center">
+          
+        <div class="logo">
+          <a class="logo-icon" href="#hero">&#x2618;</a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#works" class="nav-link">Works</a></li>
+          <li><a href="#benefits" class="nav-link">Benefits</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <a href="#contact" class="additional-link-btn">Book a call</a>
+        <span class="brand-name">Mxolisi</span>
+                
+        <!-- Theme Toggle in Navbar -->
+        <button id="navbar-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+
+          <svg id="navbar-moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+
+          <svg id="navbar-sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+
+        </button>
+                
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+
+      </div>
+                
+      <div class="navbar-right">
+        <div class="status-dot"></div>
+        <span>available for projects</span>
+      </div>
+                
+      <div class="mobile-status">
+        <div class="status-dot"></div>
+        <span>available for projects</span>
+      </div>
+
+    </nav>
+
+    <div class="mobile-dropdown" id="mobile-dropdown">
+
+      <ul class="mobile-nav-links">
+        <li><a href="#works">Works</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Theme toggle for mobile menu -->
+      <div class="mobile-theme-container">
+
+        <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+
+          <svg id="mobile-moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+
+          <svg id="mobile-sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+
+        </button>
+
+      </div>
+
+    </div>
+        
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+
+    <div class="particles-js" id="particles-js"></div>
+    
+      <div class="hero-content">
+
+        <div class="hero-title-container">
+
+          <!-- Theme Toggle near heading -->
+          <button id="hero-theme-toggle" class="hero-theme-toggle" aria-label="Toggle dark mode">
+
+            <svg id="hero-moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+
+            <svg id="hero-sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+
+          </button>
+
+          <h1>Need a cool website? <br>I got you covered.</h1>
+          <p>Designing and building sites that wow visitors and win customers.</p>
+
+        </div>
+
+        <div class="cta-buttons">
+          
+          <a href="#contact" class="primary-btn">Book a call</a>
+            
+          <div class="social-icons">
+            <a href="https://github.com/Levii17" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+            <a href="https://www.instagram.com/x_mxolisi_x?igsh=MWNwYzM1b3E4dzVwMA==" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+            <a href="https://wa.me/+27671884529" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://x.com/x_mxolisi_x?t=fcSb40pEpo656AECH4tlfQ&s=09" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
+  <!-- WORKS -->
+  <section class="work-section" id="works">
+
+    <div class="container">
+  
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">A showcase of my recent work and collaborations</p>
+      
+      <ul id="projects">
+        <!-- Project Card 1 -->
+        <li class="project-card-wrapper" id="project1">
+          <div class="project-card">
+            <div class="project-info">
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Under Construction</h3>
+              <hr>
+              <p class="project-description">Coming Soon.</p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  Visit Live Site
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#" class="project-link github-link">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12C22 6.477 17.523 2 12 2Z" fill="black"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-image">
+              <img src="https://img.freepik.com/free-vector/flat-construction-template_23-2147739035.jpg?t=st=1745046434~exp=1745050034~hmac=53a6c6fc80ce795abc68dea31323081141633d3d199c0f5b3cc3df57e5fee704&w=826" alt="project1">
+            </div>
+          </div>
+        </li>
+        
+        <!-- Project Card 2 -->
+        <li class="project-card-wrapper" id="project2">
+          <div class="project-card">
+            <div class="project-info">
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Under Construction</h3>
+              <hr>
+              <p class="project-description">Coming Soon.</p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  Visit Live Site
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#" class="project-link github-link">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12C22 6.477 17.523 2 12 2Z" fill="black"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-image">
+              <img src="https://img.freepik.com/free-vector/flat-construction-template_23-2147735660.jpg?uid=R186486732&ga=GA1.1.2054178271.1743776965&semt=ais_hybrid&w=740" alt="project2">
+            </div>
+          </div>
+        </li>
+        
+        <!-- Project Card 3 -->
+        <li class="project-card-wrapper" id="project3">
+          <div class="project-card">
+            <div class="project-info">
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Under Construction</h3>
+              <hr>
+              <p class="project-description">Coming soon.</p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  Visit Live Site
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#" class="project-link github-link">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12C22 6.477 17.523 2 12 2Z" fill="black"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-image">
+              <img src="https://img.freepik.com/free-vector/flat-construction-template_23-2147736344.jpg?t=st=1745046483~exp=1745050083~hmac=375df49f22d66277d83f68919b02a8a87cba9c4b4862ab8c0eeb8b1e85411d42&w=826" alt="project3">
+            </div>
+          </div>
+        </li>
+        
+        <!-- Project Card 4 -->
+        <li class="project-card-wrapper" id="project4">
+          <div class="project-card">
+            <div class="project-info">
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Under Construction</h3>
+              <hr>
+              <p class="project-description">Coming Soon.</p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  Visit Live Site
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#" class="project-link github-link">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12C22 6.477 17.523 2 12 2Z" fill="black"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-image">
+              <img src="https://img.freepik.com/free-vector/flat-construction-template_23-2147741156.jpg?t=st=1745046518~exp=1745050118~hmac=25c128f82cd41dfb7b736348977bb865c51aa936f4e3e38872fc215f35589084&w=826" alt="project4">
+            </div>
+          </div>
+        </li>
+        
+        <!-- Project Card 5 -->
+        <li class="project-card-wrapper" id="project5">
+          <div class="project-card">
+            <div class="project-info">
+              <div class="project-year">2025</div>
+              <h3 class="project-title">Under Construction</h3>
+              <hr>
+              <p class="project-description">Coming Soon.</p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  Visit Live Site
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#" class="project-link github-link">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21C9.5 20.77 9.5 20.14 9.5 19.31C6.73 19.91 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.5 18.45 8.97 18 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.39 6 9.5 6.65 8.79C6.55 8.54 6.2 7.5 6.75 6.15C6.75 6.15 7.59 5.88 9.5 7.17C10.29 6.95 11.15 6.84 12 6.84C12.85 6.84 13.71 6.95 14.5 7.17C16.41 5.88 17.25 6.15 17.25 6.15C17.8 7.5 17.45 8.54 17.35 8.79C18 9.5 18.38 10.39 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.5 17.33 14.5 18.26C14.5 19.6 14.5 20.68 14.5 21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12C22 6.477 17.523 2 12 2Z" fill="black"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-image">
+              <img src="https://img.freepik.com/free-vector/construction-concept-illustration_114360-2764.jpg?t=st=1745046545~exp=1745050145~hmac=b18f160d629dee0d356326866438ef0f4d52713331fa9a5456842e8d123bd7c3&w=826" alt="project5">
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits-section" id="benefits">
+
+    <div class="container">
+      <h2 class="section-title">Why Choose Me</h2>
+      <p class="section-subtitle">
+        My approach combines creativity with technical excellence to deliver exceptional results
+      </p>
+        
+      <div class="benefits-grid">
+        <!-- Benefit Card 1 -->
+        <div class="benefit-card card-1">
+          <div class="card-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>Pixel-perfect designs that look stunning on any device, from desktop to mobile.</p>
+          <div class="card-hover-content">
+                <ul>
+                    <li>Mobile-first approach</li>
+                    <li>Cross-browser compatibility</li>
+                    <li>Fluid layouts</li>
+                </ul>
+          </div>
+        </div>
+            
+        <!-- Benefit Card 2 -->
+        <div class="benefit-card card-2">
+          <div class="card-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Fast Performance</h3>
+          <p>Optimized code and assets for lightning-fast load times and smooth interactions.</p>
+          <div class="card-hover-content">
+                <ul>
+                    <li>Code optimization</li>
+                    <li>Lazy loading</li>
+                    <li>Performance audits</li>
+                </ul>
+            </div>
+        </div>
+            
+        <!-- Benefit Card 3 -->
+        <div class="benefit-card card-3">
+          <div class="card-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>SEO Optimized</h3>
+          <p>Built with search engine optimization in mind to help you rank higher in search results.</p>
+          <div class="card-hover-content">
+                <ul>
+                    <li>Semantic HTML</li>
+                    <li>Structured data</li>
+                    <li>SEO best practices</li>
+                </ul>
+            </div>
+        </div>
+            
+        <!-- Benefit Card 4 -->
+        <div class="benefit-card card-4">
+          <div class="card-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h3>Bang for Your Buck</h3>
+          <p>Quality design that doesn't break the bank, because looking like a million bucks shouldn't mean spending it.</p>
+          <div class="card-hover-content">
+              <ul>
+                  <li>Transparent pricing</li>
+                  <li>Value-focused solutions</li>
+                  <li>No hidden costs</li>
+              </ul>
+          </div>
+        </div>
+            
+        <!-- Benefit Card 5 -->
+        <div class="benefit-card card-5">
+          <div class="card-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>UI/UX Focused</h3>
+          <p>Beautiful interfaces with intuitive user experiences that drive engagement and conversions.</p>
+          <div class="card-hover-content">
+                <ul>
+                    <li>User research</li>
+                    <li>Prototyping</li>
+                    <li>Usability testing</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Benefit Card 6 -->
+        <div class="benefit-card card-6">
+          <div class="card-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Secure Solutions</h3>
+          <p>Prioritizing security to protect your data and ensure peace of mind for you and your users.</p>
+          <div class="card-hover-content">
+                <ul>
+                    <li>Data encryption</li>
+                    <li>Secure authentication</li>
+                    <li>Regular security audits</li>
+                </ul>
+          </div>
+
+        </div>
+          
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+        <div class="container">
+  
+            <div class="typing-header">
+              <h2 class="section-title">
+                <span class="typing-text">Ay, I'm Mxolisi...</span>
+              </h2>
+            </div>
+  
+            <div class="about-flex">
+  
+                <!-- Left Column - Visual Elements -->
+                <div class="about-visuals">
+    
+                    <div class="code-snippet">
+                        <span class="code-container">
+                            <div class="code-dots">
+                                <span class="code-dot red"></span>
+                                <span class="code-dot yellow"></span>
+                                <span class="code-dot green"></span>
+                            </div>
+                            <pre><code>
+  <span class="highlight">const</span> developer = <span class="bracket">{</span>
+  <span class="property">name</span>: <span class="string">"Mxolisi"</span>,
+  <span class="property">location</span>: <span class="string">"South Africa"</span>,
+  <span class="property">skills</span>: [<span class="string">"UI/UX"</span>, <span class="string">"Frontend"</span>, <span class="string">"Web Development"</span>],
+  <span class="property">passions</span>: [
+    <span class="string">"Clean code"</span>, 
+    <span class="string">"Pixel-perfect design"</span>,
+    <span class="string">"Solving real problems"</span>
+  ],
+  <span class="property">hobbies</span>: <span class="highlight">function</span>() <span class="bracket">{</span>
+    <span class="highlight">return</span> [<span class="string">"Gaming"</span>, <span class="string">"Anime"</span>, <span class="string">"Chess"</span>];
+  <span class="bracket">}</span>
+  <span class="bracket">}</span>;
+                            </code></pre>
+                        </span>
+                    </div>
+
+                    
+                    <div class="content-card">
+                      <h3>Tool Box</h3>
+                      
+                      <div class="tech-stack">
+                          <div class="tech-item" data-tech="HTML">
+                              <p>HTML</p>
+                          </div>
+
+                          <div class="tech-item" data-tech="CSS">
+                              <p>CSS</p>
+                          </div>
+
+                          <div class="tech-item" data-tech="JS">
+                              <p>JS</p>
+                          </div>
+
+                          <div class="tech-item" data-tech="Git">
+                              <p>Git</p>
+                          </div>
+
+                          <div class="tech-item" data-tech="npm">
+                              <p>npm</p>
+                          </div>
+
+                          <div class="tech-item" data-tech="React">
+                              <p>React</p>
+                          </div>
+                          
+                          <div class="tech-item" data-tech="Figma">
+                              <p>Figma</p>
+                          </div>
+
+                          <div class="tech-item" data-tech="Node.js">
+                            <p>Node.js</p>
+                          </div>
+
+                      </div>
+                </div>
+    
+                    
+                </div>
+                
+                <!-- Right Column - Content -->
+                <div class="about-content">
+  
+                    <div class="content-card">
+                        <div class="bio-text">
+                            <p>I'm a self-taught developer from South Africa who believes technology should be as beautiful as it is functional. With a passion for creating intuitive digital experiences, I bridge the gap between design and technology.</p>
+                            <br>
+                            <p>I’ve always been drawn to experiences that challenge the mind and spark the imagination. Self-taught and always learning, I strive to craft digital solutions that are not only functional but thoughtfully designed—where every line of code adds to a seamless, engaging experience.</p>
+                            <div class="signature">
+                                <img src="https://github.com/Levii17/images/blob/main/signature%20(2).png?raw=true" alt="Signature">
+                            </div>
+                        </div>
+                        <div class="scroll-indicator" id="bioScroll">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                      <h3>Let's Work Together</h3>
+                      <div class="cta-btns">
+                          <a href="#contact" class="btn primary-btn">Contact Me</a>
+                          <a href="#works" class="btn secondary-btn">View Projects</a>
+                      </div>
+                    </div>
+                    
+                </div>          
+  
+            </div>
+
+            <br>
+            
+            <h2 class="section-title">Certificates</h2>
+    
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <img class="cert-img" 
+                         src="/assets/images/Responsive Web Design.png" 
+                         alt="Responsive Web Design Certificate"/>
+                    <div class="expand-hint">Click to expand</div>
+                </div>
+        
+                <div class="cert-card">
+                    <img class="cert-img" 
+                         src="/assets/images/Javascript Algorithms and Data Structures.png" 
+                         alt="Javascript Algorithms and Data Structures Certificate"/>
+                    <div class="expand-hint">Click to expand</div>
+                </div>
+            </div>
+
+        </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+
+      <div class="container">
+
+      <h2 class="section-title">My Process</h2>
+      <p class="section-subtitle">
+        Here's how we'll work together to bring your vision to life
+      </p>
+    
+          <div class="process-steps">
+              <!-- Step 1 -->
+              <div class="process-step">
+                  <div class="step-header">
+                      <div class="step-number">01</div>
+                      <h3>Discovery & Strategy</h3>
+                      <div class="step-toggle"><i class="fas fa-chevron-down"></i></div>
+                  </div>
+                  <div class="step-content">
+                      <p>I begin with a deep dive into your business, goals, and audience to create a strategic foundation for your project.</p>
+                      <div class="step-details">
+                          <ul>
+                              <li>Comprehensive project requirements analysis</li>
+                              <li>Competitor analysis and market positioning</li>
+                              <li>User persona development and journey mapping</li>
+                              <li>Strategic planning and project roadmap creation</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Step 2 -->
+              <div class="process-step">
+                  <div class="step-header">
+                      <div class="step-number">02</div>
+                      <h3>UX/UI Design</h3>
+                      <div class="step-toggle"><i class="fas fa-chevron-down"></i></div>
+                  </div>
+                  <div class="step-content">
+                      <p>Transforming strategy into visuals with wireframes and design concepts that align perfectly with your brand identity.</p>
+                      <div class="step-details">
+                          <ul>
+                              <li>Information architecture and user flow design</li>
+                              <li>Interactive wireframing and prototyping</li>
+                              <li>Brand-aligned visual design systems</li>
+                              <li>Responsive designs optimized for all devices</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Step 3 -->
+              <div class="process-step">
+                  <div class="step-header">
+                      <div class="step-number">03</div>
+                      <h3>Development</h3>
+                      <div class="step-toggle"><i class="fas fa-chevron-down"></i></div>
+                  </div>
+                  <div class="step-content">
+                      <p>Converting designs into powerful, functional interfaces using modern front-end technologies and best practices.</p>
+                      <div class="step-details">
+                          <ul>
+                              <li>Semantic HTML structure with accessibility in mind</li>
+                              <li>Advanced CSS/SCSS with custom animations</li>
+                              <li>Modern JavaScript frameworks for rich interactivity</li>
+                              <li>Performance optimization and code efficiency</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Step 4 -->
+              <div class="process-step">
+                  <div class="step-header">
+                      <div class="step-number">04</div>
+                      <h3>Testing & Refinement</h3>
+                      <div class="step-toggle"><i class="fas fa-chevron-down"></i></div>
+                  </div>
+                  <div class="step-content">
+                      <p>Rigorous testing across multiple dimensions to ensure flawless performance, accessibility, and user experience.</p>
+                      <div class="step-details">
+                          <ul>
+                              <li>Cross-browser and cross-device compatibility testing</li>
+                              <li>Performance optimization and speed benchmarking</li>
+                              <li>WCAG accessibility compliance validation</li>
+                              <li>User testing and feedback integration</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Step 5 -->
+              <div class="process-step">
+                  <div class="step-header">
+                      <div class="step-number">05</div>
+                      <h3>Launch & Growth</h3>
+                      <div class="step-toggle"><i class="fas fa-chevron-down"></i></div>
+                  </div>
+                  <div class="step-content">
+                      <p>Strategic deployment and continuous support to ensure your digital presence evolves with your business needs.</p>
+                      <div class="step-details">
+                          <ul>
+                              <li>Optimized deployment and server configuration</li>
+                              <li>Advanced SEO implementation and analytics setup</li>
+                              <li>Performance monitoring and optimization</li>
+                              <li>Ongoing support and growth strategies</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    
+          <div class="process-navigation">
+              <button class="nav-button prev-button" aria-label="Previous step">
+                  <i class="fas fa-chevron-up"></i>
+              </button>
+              <p class="nav-hint">Navigate with arrows, buttons, or swipe</p>
+              <button class="nav-button next-button" aria-label="Next step">
+                  <i class="fas fa-chevron-down"></i>
+              </button>
+          </div>
+
+          <div class="process-progress">
+              <div class="progress-bar">
+                  <div class="progress-indicator"></div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+
+    <div class="container">
+  
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">
+        Have a project in mind or just want to say hello? I'd love to hear from you!
+      </p>
+  
+          <div class="contact-card">
+            <div class="card-content">
+              <div class="form-column">
+                <h3>Tell me about your project</h3>
+
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xqaqoayg"
+                method="POST">
+
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name" name="name" autocomplete="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com"  autocomplete="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                      <option value="" disabled selected>Select a topic</option>
+                      <option value="project">Project inquiry</option>
+                      <option value="collaboration">Collaboration</option>
+                      <option value="support">Support</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea type="message" id="message" name="message" placeholder="Tell me about your project, ideas, or questions..." required></textarea>
+                  </div>
+                  <button type="submit" class="btn primary-btn">
+                    <span class="btn-text">Send Message</span>
+                  </button>
+                  <div id="formStatus" class="form-status"></div>
+                  
+                </form>
+              </div>
+            
+            </div>
+          </div>
+          
+        </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+          
+    <div class="footer-waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+        </defs>
+        <g class="wave-animation">
+          <use xlink:href="#wave-path" x="50" y="0" fill="rgba(108, 92, 231, 0.7)"></use>
+          <use xlink:href="#wave-path" x="50" y="3" fill="rgba(162, 155, 254, 0.5)"></use>
+          <use xlink:href="#wave-path" x="50" y="6" fill="rgba(253, 121, 168, 0.3)"></use>
+        </g>
+      </svg>
+    </div>
+    
+    <div class="footer-content">
+
+      <div class="container">
+
+        <div class="footer-grid">
+
+          <!-- Logo & About Column -->
+          <div class="footer-column brand-column">
+
+            <div class="footer-logo">
+              <h2 class="logo-text">Mxolisi</h2>
+              <span class="logo-accent">Web Developer & Designer</span>
+            </div>
+
+            <p class="about-text">
+              Creating exceptional digital experiences through creative design and clean code. Specializing in modern, responsive websites that make an impact. Let's build something amazing together.
+            </p>
+
+            <div class="social-links">
+              <a href="https://x.com/x_mxolisi_x?t=fcSb40pEpo656AECH4tlfQ&s=09" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://wa.me/+27671884529" class="social-link" aria-label="WhatsApp">
+                <i class='bx bxl-whatsapp'></i>
+              </a>
+              <a href="https://github.com/Levii17" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.instagram.com/x_mxolisi_x?igsh=MWNwYzM1b3E4dzVwMA==" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Services Column -->
+          <div class="footer-column">
+            <h3 class="footer-heading">Services</h3>
+            <ul class="footer-links">
+              <li><a href="#services">Web Design</a></li>
+              <li><a href="#services">Frontend Development</a></li>
+              <li><a href="#services">Responsive Websites</a></li>
+              <li><a href="#services">UI/UX Design</a></li>
+              <li><a href="#services">SEO Optimization</a></li>
+              <li><a href="#services">Performance Tuning</a></li>
+            </ul>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div class="footer-column">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#process">Process</a></li>
+              <li><a href="#works">Portfolio</a></li>
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="footer-column contact-column">
+
+            <h3 class="footer-heading">Get In Touch</h3>
+
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:mxolisibhotile58@gmail.com">mxolisibhotile58@gmail.com</a>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+27671884529">+27 67 188 4529</a>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>South Africa</span>
+              </li>
+              <li>
+                <i class="fas fa-clock"></i>
+                <span>Available: 9am - 6pm (SAST)</span>
+              </li>
+            </ul>
+
+            <div class="newsletter">
+              <h4 class="newsletter-heading">Subscribe to Newsletter</h4>
+              <form class="subscribe-form" id="newsletter-form">
+                <input type="email" name="email" placeholder="Your Email Address" autocomplete="email" required>
+                <button type="submit" aria-label="Subscribe">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">© <span id="current-year">2025</span> Mxolisi. All rights reserved.</p>
+        <div class="footer-links-bottom">
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Artistic Elements -->
+    <div class="footer-art">
+      <div class="code-lines">
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+      </div>
+
+      <div class="geometric-shapes">
+        <div class="circle-shape"></div>
+        <div class="square-shape"></div>
+        <div class="triangle-shape"></div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="/assets/js/script.js" defer></script>
+  <script src="/assets/js/works.js" defer></script>
+  <script src="/assets/js/benefits.js" defer></script>
+  <script src="/assets/js/about.js" defer></script>
+  <script src="/assets/js/process.js" defer></script>
+  <!-- <script src="/assets/js/contact.js" defer></script> -->
+  <script src="/assets/js/footer.js" defer></script>
+
+</body>
+</html>

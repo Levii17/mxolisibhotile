@@ -78,57 +78,6 @@
     }
 }
 
-.cta-btns {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: center;
-
-    @include mobile {
-        gap: 1rem;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-.btn {
-    @include button-base;
-    padding: 12px 28px;
-    border-radius: var(--border-radius-md);
-    font-weight: 600;
-    transition: var(--transition-default);
-    text-decoration: none;
-    display: inline-block;
-    border: 2px solid transparent;
-    box-shadow: var(--shadow-sm);
-    font-family: var(--font-primary);
-
-    @include mobile {
-        padding: 10px 24px;
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-    }
-}
-
-.secondary-btn {
-    background: transparent;
-    color: var(--color-accent);
-    border-color: var(--color-accent);
-
-    &:hover {
-        background: var(--color-hover-bg);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-    }
-
-    &:active {
-        transform: translateY(-1px);
-    }
-}
-
 .bio-text {
     margin-bottom: 1rem;
     position: relative;
@@ -262,36 +211,36 @@
 }
 
 // Mobile typing animation - slightly slower
-// @keyframes typing-mobile {
-//     0% {
-//         width: 0;
-//     }
-//     50% {
-//         width: 100%;
-//     }
-//     70% {
-//         width: 100%;
-//     }
-//     100% {
-//         width: 100%;
-//     }
-// }
+@keyframes typing-mobile {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    70% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+    }
+}
 
 // Small mobile typing animation - even slower
-// @keyframes typing-small {
-//     0% {
-//         width: 0;
-//     }
-//     60% {
-//         width: 100%;
-//     }
-//     80% {
-//         width: 100%;
-//     }
-//     100% {
-//         width: 100%;
-//     }
-// }
+@keyframes typing-small {
+    0% {
+        width: 0;
+    }
+    60% {
+        width: 100%;
+    }
+    80% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+    }
+}
 
 @keyframes blink {
     0%, 50% {
@@ -337,10 +286,7 @@
     }
 }
 
-// ===================================
-// CONTENT CARDS COMPONENT
-// ===================================
-
+// CONTENT CARDS 
 .content-card {
     background: var(--color-surface);
     border-radius: var(--border-radius-md);
@@ -485,10 +431,7 @@
     }
 }
 
-// ===================================
-// TECH STACK COMPONENT
-// ===================================
-
+// TECH STACK 
 .tech-stack {
     display: flex;
     justify-content: center;
@@ -701,10 +644,7 @@
     }
 }
 
-// ===================================
 // CODE SNIPPET COMPONENT
-// ===================================
-
 .code-snippet {
     background: var(--color-surface);
     border-radius: var(--border-radius-md);
@@ -1199,265 +1139,7 @@
     }
 }
 
-// ===================================
-// EXPERIENCE BARS COMPONENT
-// ===================================
-
-.experience-bars {
-    margin-top: 2rem;
-
-    @include mobile {
-        margin-top: 1.5rem;
-    }
-}
-
-.experience-item {
-    margin-bottom: 1.5rem;
-    transition: var(--transition-default);
-
-    &:hover {
-        transform: translateY(-2px);
-    }
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    @include mobile {
-        margin-bottom: 1.2rem;
-    }
-}
-
-.experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    gap: 1rem;
-
-    @include mobile {
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-}
-
-.experience-name {
-    color: var(--color-text-primary);
-    font-weight: 500;
-    font-family: var(--font-secondary);
-    font-size: 1rem;
-    flex: 1;
-
-    @include mobile {
-        font-size: 0.9rem;
-    }
-}
-
-.experience-level {
-    color: var(--color-accent);
-    font-weight: 600;
-    font-family: var(--font-secondary);
-    font-size: 0.9rem;
-    white-space: nowrap;
-
-    @include mobile {
-        font-size: 0.8rem;
-    }
-}
-
-.progress-bar {
-    height: 8px;
-    background: var(--color-border-light);
-    border-radius: var(--border-radius-sm);
-    overflow: hidden;
-    position: relative;
-    transition: var(--transition-default);
-
-    &:hover {
-        height: 10px;
-        background: var(--color-border);
-    }
-
-    @include mobile {
-        height: 6px;
-        
-        &:hover {
-            height: 8px;
-        }
-    }
-}
-
-.progress {
-    height: 100%;
-    background: var(--gradient-primary);
-    border-radius: var(--border-radius-sm);
-    position: relative;
-    width: 0;
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, 
-            transparent 0%, 
-            hsla(0, 0%, 100%, 0.4) 50%, 
-            transparent 100%
-        );
-        transform: translateX(-100%);
-        animation: shine 2s infinite;
-    }
-
-    // Different progress levels with different colors
-    &[data-level="beginner"] {
-        background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-    }
-
-    &[data-level="intermediate"] {
-        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    }
-
-    &[data-level="advanced"] {
-        background: linear-gradient(135deg, var(--color-secondary), var(--color-success));
-    }
-
-    &[data-level="expert"] {
-        background: linear-gradient(135deg, var(--color-success), var(--color-primary-light));
-        box-shadow: var(--shadow-glow);
-    }
-}
-
-// Enhanced shine animation
-@keyframes shine {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-}
-
-// Experience item variants
-.experience-item {
-    &.featured {
-        background: var(--color-surface);
-        padding: 1rem;
-        border-radius: var(--border-radius-sm);
-        border: 1px solid var(--color-border-light);
-        box-shadow: var(--shadow-sm);
-        
-        &:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--color-primary);
-        }
-        
-        .progress-bar {
-            background: var(--color-border);
-        }
-    }
-
-    &.minimal {
-        .progress-bar {
-            height: 4px;
-            background: var(--color-border-light);
-        }
-        
-        .experience-header {
-            margin-bottom: 0.3rem;
-        }
-        
-        .experience-name,
-        .experience-level {
-            font-size: 0.9rem;
-        }
-    }
-
-    &.animated {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.6s ease forwards;
-    }
-}
-
-// Staggered animation for multiple items
-.experience-bars.animated {
-    .experience-item {
-        @for $i from 1 through 10 {
-            &:nth-child(#{$i}) {
-                animation-delay: #{$i * 0.15}s;
-            }
-        }
-    }
-}
-
-// Progress percentage display
-.progress-percentage {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--color-surface);
-    text-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.3);
-    opacity: 0;
-    transition: var(--transition-default);
-
-    .progress:hover & {
-        opacity: 1;
-    }
-}
-
-// Skill categories
-.skill-category {
-    margin-bottom: 2.5rem;
-
-    h4 {
-        font-size: 1.2rem;
-        color: var(--color-text-primary);
-        font-family: var(--font-secondary);
-        font-weight: 600;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--color-primary);
-        display: inline-block;
-
-        @include mobile {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-        }
-    }
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-// Responsive adjustments
-@include mobile {
-    .experience-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.2rem;
-    }
-    
-    .experience-level {
-        align-self: flex-end;
-    }
-}
-
-// ===================================
 // ANIMATIONS COMPONENT
-// ===================================
 
 // Bounce animation for scroll indicator
 @keyframes bounce {

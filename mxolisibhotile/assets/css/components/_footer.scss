@@ -1,6 +1,4 @@
-// _footer-base.scss
-// ====================
-
+// footer-base
 .footer {
     position: relative;
     padding: 0;
@@ -16,9 +14,7 @@
     }
 }
 
-// _footer-waves.scss
-// ==================
-
+// footer-waves
 .footer-waves {
     position: relative;
     width: 100%;
@@ -64,7 +60,6 @@
 }
 
 // _footer-content.scss
-// ====================
 
 .footer-content {
     position: relative;
@@ -385,56 +380,6 @@
     &:nth-child(3) { width: 80px; }
     &:nth-child(4) { width: 40px; }
     &:nth-child(5) { width: 100px; }
-}
-
-.geometric-shapes {
-    position: absolute;
-    bottom: 80px;
-    right: 10%;
-}
-
-.circle-shape {
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    border: 3px solid var(--shape-circle);
-    border-radius: 50%;
-    bottom: 40px;
-    right: 50px;
-    animation: float 5s ease-in-out infinite;
-}
-
-.square-shape {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 3px solid var(--shape-square);
-    transform: rotate(45deg);
-    bottom: 90px;
-    right: 20px;
-    animation: rotate 10s linear infinite;
-}
-
-.triangle-shape {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 45px solid transparent;
-    border-right: 45px solid transparent;
-    border-bottom: 80px solid var(--shape-triangle);
-    bottom: 60px;
-    right: 100px;
-    animation: float 7s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes rotate {
-    from { transform: rotate(45deg); }
-    to { transform: rotate(405deg); }
 }
 
 // _footer-back-to-top.scss

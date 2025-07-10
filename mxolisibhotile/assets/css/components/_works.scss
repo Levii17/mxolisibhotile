@@ -88,10 +88,10 @@
 
 // Card background variations using new variable system
 #project1 .project-card { background-color: var(--card-bg-1); }
-#project2 .project-card { background-color: var(--card-bg-2); }
-#project3 .project-card { background-color: var(--card-bg-3); }
-#project4 .project-card { background-color: var(--card-bg-4); }
-#project5 .project-card { background-color: var(--card-bg-5); }
+#project2 .project-card { background-color: var(--card-bg-1); }
+#project3 .project-card { background-color: var(--card-bg-1); }
+#project4 .project-card { background-color: var(--card-bg-1); }
+#project5 .project-card { background-color: var(--card-bg-1); }
 
 // Alternating layout for visual variety
 #project2 .project-card,

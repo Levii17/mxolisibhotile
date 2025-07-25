@@ -1118,16 +1118,16 @@ body {
     background-color: var(--card-bg-1) !important;
   }
   #project2 .project-card {
-    background-color: var(--card-bg-2) !important;
+    background-color: var(--card-bg-1) !important;
   }
   #project3 .project-card {
-    background-color: var(--card-bg-3) !important;
+    background-color: var(--card-bg-1) !important;
   }
   #project4 .project-card {
-    background-color: var(--card-bg-4) !important;
+    background-color: var(--card-bg-1) !important;
   }
   #project5 .project-card {
-    background-color: var(--card-bg-5) !important;
+    background-color: var(--card-bg-1) !important;
   }
   .project-info {
     padding: 0;

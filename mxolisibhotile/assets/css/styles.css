@@ -738,15 +738,30 @@ body {
   height: 100%;
   z-index: 1;
 }
-.hero-content {
+.hero #three-canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 200px;
+  left: 130px;
+  width: 100%;
+  height: 100%;
+  display: block;
   z-index: 2;
+}
+.hero-content {
+  z-index: 3;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   text-align: center;
   margin-bottom: 80px;
 }
-.hero h1 {
+.hero-text {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+.hero-text h1 {
   font-size: 75px;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -754,15 +769,22 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-primary);
 }
-.hero p {
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+}
+.hero-text p {
   font-size: 24px;
   margin-bottom: 30px;
   font-weight: 500;
   font-family: var(--font-secondary);
   color: var(--color-text-secondary);
 }
-.hero-title-container {
-  padding-bottom: 50px;
+@media (max-width: 768px) {
+  .hero-text p {
+    font-size: 1.1rem;
+  }
 }
 .hero-theme-toggle {
   position: absolute;
@@ -779,6 +801,7 @@ body {
   cursor: pointer;
   color: var(--color-toggle-icon);
   transition: var(--transition-default);
+  z-index: 10;
 }
 .hero-theme-toggle:hover {
   transform: scale(1.1);
@@ -786,6 +809,20 @@ body {
 .hero-theme-toggle svg {
   width: 24px;
   height: 24px;
+}
+@media (max-width: 768px) {
+  .hero-theme-toggle {
+    position: static;
+    margin: 1rem auto;
+  }
+}
+@media (max-width: 768px) {
+  .hero-title-container {
+    position: relative;
+  }
+  .hero .hero-content {
+    padding-bottom: 2rem;
+  }
 }
 
 .social-icons {
@@ -815,21 +852,6 @@ body {
   color: var(--color-surface);
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .hero p {
-    font-size: 1.1rem;
-  }
-  .hero-theme-toggle {
-    position: static;
-    margin: 1rem auto;
-  }
-  .hero-title-container {
-    position: relative;
-  }
-}
 .works-section {
   padding: 6rem 0;
   background: var(--color-bg);
@@ -1115,19 +1137,19 @@ body {
     transform: translateY(-4px);
   }
   #project1 .project-card {
-    background-color: var(--card-bg-1) !important;
+    background-color: var(--card-bg-2) !important;
   }
   #project2 .project-card {
     background-color: var(--card-bg-2) !important;
   }
   #project3 .project-card {
-    background-color: var(--card-bg-3) !important;
+    background-color: var(--card-bg-2) !important;
   }
   #project4 .project-card {
-    background-color: var(--card-bg-4) !important;
+    background-color: var(--card-bg-2) !important;
   }
   #project5 .project-card {
-    background-color: var(--card-bg-5) !important;
+    background-color: var(--card-bg-2) !important;
   }
   .project-info {
     padding: 0;

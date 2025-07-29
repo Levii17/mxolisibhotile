@@ -1,0 +1,129 @@
+// Button mixins and components
+@mixin button-base {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    text-decoration: none;
+    border-radius: var(--border-radius-pill);
+    box-shadow: var(--shadow-sm);
+    font-weight: bold;
+    border: 3px solid hsla(0, 0%, 100%, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-default);
+    display: inline-block;
+    text-align: center;
+    font-family: var(--font-primary);
+    position: relative;
+
+    &:hover {
+        transform: scale(1.05);
+        border-color: hsla(0, 0%, 100%, 0.6);
+        background-color: var(--color-accent);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100%;
+        background-image: linear-gradient(
+            120deg,
+            hsla(0, 0%, 100%, 0) 30%,
+            hsla(0, 0%, 100%, 0.8),
+            hsla(0, 0%, 100%, 0) 70%
+        );
+        top: 0;
+        left: -100px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    &:hover::before {
+        animation: shine 1.5s ease-out infinite;
+        opacity: 0.6;
+    }
+}
+
+.primary-btn,
+.secondary-btn,
+.additional-link-btn,
+.book-call-btn {
+    @include button-base;
+}
+
+.primary-btn {
+    font-size: 18px;
+    display: block;
+    padding: 10px 22px;
+}
+
+.additional-link-btn {
+    display: none;
+    padding: 0.5rem 1.25rem;
+    margin-left: 15px;
+}
+
+// HERO BUTTONS
+// CTA buttons
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  
+    .primary-btn {
+        margin-left: 0;
+    }
+}
+
+// ABOUT BUTTONS
+.cta-btns {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.btn {
+    @include button-base;
+    padding: 12px 28px;
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    transition: var(--transition-default);
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-primary);
+
+    @include mobile {
+        padding: 10px 24px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+
+    &:hover {
+        background: var(--color-hover-bg);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+
+    &:active {
+        transform: translateY(-1px);
+    }
+}

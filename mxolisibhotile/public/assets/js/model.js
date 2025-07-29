@@ -52,7 +52,7 @@ const loadingManager = new THREE.LoadingManager(
 
 function loadModel() {
   const loader = new GLTFLoader(loadingManager);
-  loader.load('model/mxolisi.glb', (gltf) => {
+  loader.load('/model/mxolisi.glb', (gltf) => {
     model = gltf.scene;
 
     model.traverse((child) => {

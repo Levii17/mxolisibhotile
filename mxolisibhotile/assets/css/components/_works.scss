@@ -87,11 +87,11 @@
 }
 
 // Card background variations using new variable system
-#project1 .project-card { background-color: var(--card-bg-2); }
-#project2 .project-card { background-color: var(--card-bg-2); }
-#project3 .project-card { background-color: var(--card-bg-2); }
-#project4 .project-card { background-color: var(--card-bg-2); }
-#project5 .project-card { background-color: var(--card-bg-2); }
+#project1 .project-card { background-color: var(--card-bg-1); }
+#project2 .project-card { background-color: var(--card-bg-1); }
+#project3 .project-card { background-color: var(--card-bg-1); }
+#project4 .project-card { background-color: var(--card-bg-1); }
+#project5 .project-card { background-color: var(--card-bg-1); }
 
 // Alternating layout for visual variety
 #project2 .project-card,
@@ -256,11 +256,11 @@
     }
     
     // Maintain card background colors on mobile
-    #project1 .project-card { background-color: var(--card-bg-2) !important; }
-    #project2 .project-card { background-color: var(--card-bg-2) !important; }
-    #project3 .project-card { background-color: var(--card-bg-2) !important; }
-    #project4 .project-card { background-color: var(--card-bg-2) !important; }
-    #project5 .project-card { background-color: var(--card-bg-2) !important; }
+    #project1 .project-card { background-color: var(--card-bg-1) !important; }
+    #project2 .project-card { background-color: var(--card-bg-1) !important; }
+    #project3 .project-card { background-color: var(--card-bg-1) !important; }
+    #project4 .project-card { background-color: var(--card-bg-1) !important; }
+    #project5 .project-card { background-color: var(--card-bg-1) !important; }
     
     .project-info {
         padding: 0;

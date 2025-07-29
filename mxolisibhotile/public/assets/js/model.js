@@ -1,5 +1,5 @@
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'https://unpkg.com/three@0.155.0/build/three.module.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.155.0/examples/jsm/loaders/GLTFLoader.js';
 
 const canvas = document.querySelector('#three-canvas');
 const scene = new THREE.Scene();
@@ -52,7 +52,7 @@ const loadingManager = new THREE.LoadingManager(
 
 function loadModel() {
   const loader = new GLTFLoader(loadingManager);
-  loader.load('/model/mxolisi.glb', (gltf) => {
+  loader.load('/assets/model/mxolisi.glb', (gltf) => {
     model = gltf.scene;
 
     model.traverse((child) => {

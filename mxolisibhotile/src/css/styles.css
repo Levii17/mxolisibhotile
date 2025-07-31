@@ -1064,7 +1064,7 @@ body {
 }
 
 .github-link {
-  background: var(--color-surface);
+  background: whitesmoke;
   border: 2px solid var(--color-border);
   padding: 12px;
   border-radius: var(--border-radius-md);

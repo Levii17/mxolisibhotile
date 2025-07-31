@@ -1,5 +1,5 @@
 // Process section interactivity
-document.addEventListener('DOMContentLoaded', function() {
+export function initProcess() {
     const processSteps = document.querySelectorAll('.process-step');
     const processSection = document.getElementById('process');
     const prevButton = document.querySelector('.prev-button');
@@ -149,4 +149,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
-});
+}

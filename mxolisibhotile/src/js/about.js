@@ -1,76 +1,3 @@
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize progress bars with animation
-            const progressBars = document.querySelectorAll('.progress');
-            setTimeout(() => {
-                progressBars.forEach(bar => {
-                    const targetWidth = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = targetWidth;
-                    }, 300);
-                });
-            }, 500);
-            
-            // Bio scroll indicator logic
-            const bioCard = document.querySelector('.bio-text');
-            const scrollIndicator = document.getElementById('bioScroll');
-            
-            // Check if bio content needs scroll indicator
-            function checkBioScroll() {
-                if (bioCard.scrollHeight > bioCard.clientHeight) {
-                    scrollIndicator.classList.add('visible');
-                } else {
-                    scrollIndicator.classList.remove('visible');
-                }
-            }
-            
-            // Run on load and resize
-            checkBioScroll();
-            window.addEventListener('resize', checkBioScroll);
-            
-            // Smooth scroll on click
-            scrollIndicator.addEventListener('click', () => {
-                bioCard.scrollTop += 50;
-                if (bioCard.scrollTop + bioCard.clientHeight >= bioCard.scrollHeight - 10) {
-                    scrollIndicator.classList.remove('visible');
-                }
-            });
-            
-            // Tech item hover animations
-            const techItems = document.querySelectorAll('.tech-item');
-            techItems.forEach(item => {
-                item.addEventListener('mouseover', () => {
-                    const others = Array.from(techItems).filter(i => i !== item);
-                    others.forEach(other => {
-                        other.style.opacity = '0.6';
-                        other.style.transform = 'scale(0.95)';
-                    });
-                });
-                
-                item.addEventListener('mouseout', () => {
-                    techItems.forEach(other => {
-                        other.style.opacity = '1';
-                        other.style.transform = '';
-                    });
-                });
-            });
-            
-// Retrigger typing animation on view
-const typingText = document.querySelector('.typing-text');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            typingText.style.animation = 'none';
-            setTimeout(() => {
-                typingText.style.animation = 'blink 0.7s infinite, typing 3.5s steps(30) 1 forwards';
-            }, 10);
-        }
-    });
-}, { threshold: 0.5 });
-
-observer.observe(typingText);
-});
 
  // Add intersection observer for scroll animations
  const observerOptions = {
@@ -99,15 +26,101 @@ let currentImageIndex = 0;
 let certificateImages = [];
 
 // Initialize certificate gallery
-document.addEventListener('DOMContentLoaded', function() {
-    // Collect all certificate images
+function setupCertificateGallery() {
     certificateImages = Array.from(document.querySelectorAll('.cert-img'));
-    
-    // Add click handlers to each certificate
     certificateImages.forEach((img, index) => {
         img.addEventListener('click', () => openLightbox(index));
     });
-});
+}
+
+// Only one export for initAbout, merge all initialization logic
+export function initAbout() {
+    // Initialize progress bars with animation
+    const progressBars = document.querySelectorAll('.progress');
+    setTimeout(() => {
+        progressBars.forEach(bar => {
+            const targetWidth = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = targetWidth;
+            }, 300);
+        });
+    }, 500);
+
+    // Bio scroll indicator logic
+    const bioCard = document.querySelector('.bio-text');
+    const scrollIndicator = document.getElementById('bioScroll');
+    function checkBioScroll() {
+        if (bioCard.scrollHeight > bioCard.clientHeight) {
+            scrollIndicator.classList.add('visible');
+        } else {
+            scrollIndicator.classList.remove('visible');
+        }
+    }
+    checkBioScroll();
+    window.addEventListener('resize', checkBioScroll);
+    scrollIndicator.addEventListener('click', () => {
+        bioCard.scrollTop += 50;
+        if (bioCard.scrollTop + bioCard.clientHeight >= bioCard.scrollHeight - 10) {
+            scrollIndicator.classList.remove('visible');
+        }
+    });
+
+    // Tech item hover animations
+    const techItems = document.querySelectorAll('.tech-item');
+    techItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            const others = Array.from(techItems).filter(i => i !== item);
+            others.forEach(other => {
+                other.style.opacity = '0.6';
+                other.style.transform = 'scale(0.95)';
+            });
+        });
+        item.addEventListener('mouseout', () => {
+            techItems.forEach(other => {
+                other.style.opacity = '1';
+                other.style.transform = '';
+            });
+        });
+    });
+
+    // Retrigger typing animation on view
+    const typingText = document.querySelector('.typing-text');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                typingText.style.animation = 'none';
+                setTimeout(() => {
+                    typingText.style.animation = 'blink 0.7s infinite, typing 3.5s steps(30) 1 forwards';
+                }, 10);
+            }
+        });
+    }, { threshold: 0.5 });
+    observer.observe(typingText);
+
+    // Animate cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.cert-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        cardObserver.observe(card);
+    });
+
+    // Certificate gallery setup
+    setupCertificateGallery();
+}
 
 function openLightbox(index) {
     currentImageIndex = index;

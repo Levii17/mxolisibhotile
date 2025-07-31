@@ -1985,7 +1985,8 @@ body {
   font-weight: 500;
   opacity: 0;
   transition: var(--transition-default);
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
   pointer-events: none;
   z-index: 10;
   box-shadow: var(--shadow-sm);

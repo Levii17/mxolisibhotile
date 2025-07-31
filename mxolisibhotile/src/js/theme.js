@@ -40,8 +40,10 @@ function toggleTheme() {
   });
 }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', initializeTheme);
+
+export function initTheme() {
+  initializeTheme();
+}
 
 // Add event listeners to all theme toggles
 themeToggleBtns.forEach(btn => {

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+export function initScript() {
     // Common DOM elements
     const navbarCenter = document.getElementById("navbar-center");
     const hero = document.querySelector(".hero") || document.getElementById("hero");
@@ -449,4 +449,4 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Animate hero elements
     animateHeroElements();
-});
+}

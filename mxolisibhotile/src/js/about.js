@@ -1,11 +1,11 @@
 
  // Add intersection observer for scroll animations
- const observerOptions = {
+const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -14,12 +14,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Animate cards on scroll
+// Animate cards and other scroll-animated elements
 document.querySelectorAll('.cert-card').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
     card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
+    scrollObserver.observe(card);
 });
 
 let currentImageIndex = 0;
@@ -98,25 +98,7 @@ export function initAbout() {
     }, { threshold: 0.5 });
     observer.observe(typingText);
 
-    // Animate cards on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    document.querySelectorAll('.cert-card').forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        cardObserver.observe(card);
-    });
+    // Animate cards on scroll (already handled by scrollObserver above)
 
     // Certificate gallery setup
     setupCertificateGallery();
@@ -157,8 +139,9 @@ function openLightbox(index) {
     // Add keyboard navigation
     document.addEventListener('keydown', handleKeyPress);
     
-    // Prevent body scroll
+    // Prevent body scroll (use touch-action for mobile compatibility)
     document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
     
     document.body.appendChild(lightbox);
 }
@@ -175,6 +158,14 @@ function closeLightbox() {
     // Remove keyboard listener and restore scroll
     document.removeEventListener('keydown', handleKeyPress);
     document.body.style.overflow = '';
+    document.body.style.touchAction = '';
+// Fallback: restore scroll if lightbox is not present (e.g., after reload)
+window.addEventListener('pageshow', () => {
+    if (!document.querySelector('.cert-lightbox')) {
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+    }
+});
 }
 
 function nextImage() {

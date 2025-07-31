@@ -1,7 +1,25 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
+
 const canvas = document.querySelector('#three-canvas');
+// Mobile canvas sizing fix
+function setCanvasSize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+setCanvasSize();
+window.addEventListener('resize', setCanvasSize);
+
+// WebGL support fallback
+if (!window.WebGLRenderingContext) {
+  canvas.style.display = 'none';
+  const fallback = document.createElement('div');
+  fallback.className = 'webgl-fallback';
+  fallback.textContent = 'WebGL is not supported on this device.';
+  canvas.parentNode.insertBefore(fallback, canvas);
+}
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -136,14 +154,21 @@ document.addEventListener('mousemove', (e) => {
   model.rotation.x = THREE.MathUtils.lerp(model.rotation.x, -mouseY * 0.1, 0.05);
 });
 
-document.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-  if (!model || !e.touches[0]) return;
-  const touchX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
-  const touchY = (e.touches[0].clientY / window.innerHeight) * 2 - 1;
 
-  model.rotation.y = touchX * 0.3;
-  model.rotation.x = -touchY * 0.2;
+let lastTouch = null;
+canvas.addEventListener('touchstart', (e) => {
+  if (!model || !e.touches[0]) return;
+  lastTouch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+}, { passive: true });
+
+canvas.addEventListener('touchmove', (e) => {
+  if (!model || !e.touches[0] || !lastTouch) return;
+  e.preventDefault();
+  const deltaX = e.touches[0].clientX - lastTouch.x;
+  const deltaY = e.touches[0].clientY - lastTouch.y;
+  lastTouch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  model.rotation.y += deltaX * 0.005;
+  model.rotation.x += -deltaY * 0.005;
 }, { passive: false });
 
 window.addEventListener('beforeunload', () => {

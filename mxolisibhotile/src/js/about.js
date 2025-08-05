@@ -104,69 +104,7 @@ export function initAbout() {
     setupCertificateGallery();
 }
 
-function openLightbox(index) {
-    currentImageIndex = index;
-    const img = certificateImages[index];
-    
-    // Create lightbox
-    const lightbox = document.createElement('div');
-    lightbox.className = 'cert-lightbox';
-    
-    lightbox.innerHTML = `
-        <div class="lightbox-container">
-            <img class="lightbox-image" src="${img.src}" alt="${img.alt}">
-            <div class="cert-title">${img.alt}</div>
-            <div class="lightbox-controls">
-                <button class="lightbox-btn" onclick="previousImage()" ${index === 0 ? 'disabled' : ''}>
-                    ←
-                </button>
-                <span class="image-counter">${index + 1} / ${certificateImages.length}</span>
-                <button class="lightbox-btn" onclick="nextImage()" ${index === certificateImages.length - 1 ? 'disabled' : ''}>
-                    →
-                </button>
-            </div>
-        </div>
-        <button class="close-btn" onclick="closeLightbox()">×</button>
-    `;
-    
-    // Close on background click
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-    
-    // Add keyboard navigation
-    document.addEventListener('keydown', handleKeyPress);
-    
-    // Prevent body scroll (use touch-action for mobile compatibility)
-    document.body.style.overflow = 'hidden';
-    document.body.style.touchAction = 'none';
-    
-    document.body.appendChild(lightbox);
-}
-
-function closeLightbox() {
-    const lightbox = document.querySelector('.cert-lightbox');
-    if (lightbox) {
-        lightbox.style.opacity = '0';
-        setTimeout(() => {
-            document.body.removeChild(lightbox);
-        }, 300);
-    }
-    
-    // Remove keyboard listener and restore scroll
-    document.removeEventListener('keydown', handleKeyPress);
-    document.body.style.overflow = '';
-    document.body.style.touchAction = '';
-// Fallback: restore scroll if lightbox is not present (e.g., after reload)
-window.addEventListener('pageshow', () => {
-    if (!document.querySelector('.cert-lightbox')) {
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
-    }
-});
-}
+let lightboxOpen = false;
 
 function nextImage() {
     if (currentImageIndex < certificateImages.length - 1) {
@@ -221,3 +159,176 @@ function handleKeyPress(e) {
             break;
     }
 }
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const img = certificateImages[index];
+    
+    // Create lightbox
+    const lightbox = document.createElement('div');
+    lightbox.className = 'cert-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', img.alt || 'Certificate image viewer');
+    
+    lightbox.innerHTML = `
+        <div class="lightbox-container">
+            <img class="lightbox-image" src="${img.src}" alt="${img.alt}">
+            <div class="cert-title">${img.alt}</div>
+            <div class="lightbox-controls">
+                <button class="lightbox-btn prev-btn" ${index === 0 ? 'disabled' : ''}>
+                    ←
+                </button>
+                <span class="image-counter">${index + 1} / ${certificateImages.length}</span>
+                <button class="lightbox-btn next-btn" ${index === certificateImages.length - 1 ? 'disabled' : ''}>
+                    →
+                </button>
+            </div>
+        </div>
+        <button class="close-btn">×</button>
+    `;
+    
+    // Add event listeners to lightbox buttons
+    const prevBtn = lightbox.querySelector('.prev-btn');
+    const nextBtn = lightbox.querySelector('.next-btn');
+    const closeBtn = lightbox.querySelector('.close-btn');
+
+    if (prevBtn) prevBtn.addEventListener('click', previousImage);
+    if (nextBtn) nextBtn.addEventListener('click', nextImage);
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Add keyboard navigation
+    if (!lightboxOpen) {
+        document.addEventListener('keydown', handleKeyPress);
+        lightboxOpen = true;
+    }
+    
+    // Prevent body scroll (use touch-action for mobile compatibility)
+    document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+    
+    // Save previously focused element
+    const prevActiveElement = document.activeElement;
+
+    document.body.appendChild(lightbox);
+
+    // Focus management: focus the close button
+    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusableEls = lightbox.querySelectorAll(focusableSelectors);
+    const closeBtnFocus = lightbox.querySelector('.close-btn');
+    if (closeBtnFocus) closeBtnFocus.focus();
+
+    // Focus trap
+    lightbox.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            const focusable = Array.from(lightbox.querySelectorAll(focusableSelectors)).filter(el => !el.disabled && el.offsetParent !== null);
+            if (focusable.length === 0) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        }
+    });
+
+    // Store for restoring focus on close
+    lightbox._prevActiveElement = prevActiveElement;
+}
+
+function closeLightbox() {
+    const lightbox = document.querySelector('.cert-lightbox');
+    if (lightbox) {
+        lightbox.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(lightbox);
+        }, 300);
+    }
+    
+    // Remove keyboard listener and restore scroll
+    document.removeEventListener('keydown', handleKeyPress);
+    lightboxOpen = false;
+    document.body.style.overflow = '';
+    document.body.style.touchAction = '';
+    // Restore focus to the previously focused element
+    const prevActiveElement = document.querySelector('.cert-lightbox')?._prevActiveElement;
+    if (prevActiveElement && typeof prevActiveElement.focus === 'function') {
+        prevActiveElement.focus();
+    }
+
+
+function nextImage() {
+    if (currentImageIndex < certificateImages.length - 1) {
+        currentImageIndex++;
+        updateLightboxImage();
+    }
+}
+
+function previousImage() {
+    if (currentImageIndex > 0) {
+        currentImageIndex--;
+        updateLightboxImage();
+    }
+}
+
+function updateLightboxImage() {
+    const img = certificateImages[currentImageIndex];
+    const lightboxImg = document.querySelector('.lightbox-image');
+    const title = document.querySelector('.cert-title');
+    const counter = document.querySelector('.image-counter');
+    const prevBtn = document.querySelector('.lightbox-btn');
+    const nextBtn = document.querySelectorAll('.lightbox-btn')[1];
+    
+    // Fade out
+    lightboxImg.style.opacity = '0.5';
+    
+    setTimeout(() => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        title.textContent = img.alt;
+        counter.textContent = `${currentImageIndex + 1} / ${certificateImages.length}`;
+        
+        // Update button states
+        prevBtn.disabled = currentImageIndex === 0;
+        nextBtn.disabled = currentImageIndex === certificateImages.length - 1;
+        
+        // Fade in
+        lightboxImg.style.opacity = '1';
+    }, 150);
+}
+
+function handleKeyPress(e) {
+    switch(e.key) {
+        case 'Escape':
+            closeLightbox();
+            break;
+        case 'ArrowLeft':
+            previousImage();
+            break;
+        case 'ArrowRight':
+            nextImage();
+            break;
+    }
+}
+
+// Fallback: restore scroll if lightbox is not present (e.g., after reload)
+window.addEventListener('pageshow', () => {
+    if (!document.querySelector('.cert-lightbox')) {
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+    }
+})}

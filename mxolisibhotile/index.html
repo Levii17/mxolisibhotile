@@ -63,6 +63,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/mb2_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/mb2_io/favicon-16x16.png">
 
+  <!-- fetch 3d model -->
+  <link rel="preload" href="/model/mxolisi.glb" as="fetch" crossorigin>
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./src/css/styles.css">
   <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
@@ -189,7 +192,7 @@
   <div class="hero-content">
     <div class="hero-title-container">
       <!-- Theme Toggle near heading -->
-      <button id="hero-theme-toggle" class="hero-theme-toggle" aria-label="Toggle dark mode">
+      <button id="hero-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
         <svg id="hero-moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
@@ -210,6 +213,7 @@
         <h1>Building Exceptional User Experiences</h1>
         <p>I dabble in creating thoughtful digital experiences that blend design and functionality.</p>
       </div>
+      
     </div>
 
     <div class="cta-buttons">

@@ -1,6 +1,13 @@
 // Dynamically import section scripts only if their section exists
+// Max-priority: load 3D model as soon as possible
+if (document.getElementById('three-canvas')) {
+  import('./model.js').then(mod => {
+    if (mod.initModel) mod.initModel();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  // HERO section: particles.js and 3D model
+  // HERO section: particles.js
   if (document.getElementById('particles-js')) {
     // Load particles.js from CDN and initialize
     const script = document.createElement('script');
@@ -15,11 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(script);
   }
 
-  if (document.getElementById('three-canvas')) {
-    import('./model.js').then(mod => {
-      if (mod.initModel) mod.initModel();
-    });
-  }
   if (document.getElementById('about')) {
     import('./about.js').then(mod => {
       if (mod.initAbout) mod.initAbout();
